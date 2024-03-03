@@ -5,8 +5,13 @@ import {
   StyleSheet,
   useColorScheme,
   Appearance,
+  NativeModules,
   Button,
+  TouchableHighlight,
+  TouchableOpacity,
 } from 'react-native';
+
+const HelloWorld = NativeModules.HelloWorldModule;
 
 const AppPro = (): JSX.Element => {
   const [mode, setMode] = useState('light');
@@ -27,10 +32,17 @@ const AppPro = (): JSX.Element => {
         ...styles.container,
         backgroundColor: isDarkMode ? 'black' : 'white',
       }}>
-      <Text style={isDarkMode ? styles.whiteText : styles.blackText}>
+      {/* <Text style={isDarkMode ? styles.whiteText : styles.blackText}>
         Hello
-      </Text>
+      </Text> */}
       <Button onPress={() => setPreference()} title="Change Mode" />
+      <Button
+        onPress={() => {
+          console.log('pressed');
+          HelloWorld.ShowMessage('Native Event Called', 2000);
+        }}
+        title="Call Native"
+      />
     </View>
   );
 };
@@ -39,7 +51,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
   },
   whiteText: {
     color: 'white',

@@ -5,7 +5,9 @@ const App = () => {
   return (
     <SafeAreaView>
       <View>
-        <Text>Hello World</Text>
+        <Text style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          Hello World
+        </Text>
       </View>
     </SafeAreaView>
   );
