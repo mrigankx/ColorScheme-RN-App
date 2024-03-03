@@ -37,6 +37,7 @@ const AppPro = (): JSX.Element => {
       </Text> */}
       <Button onPress={() => setPreference()} title="Change Mode" />
       <Button
+        color="red"
         onPress={() => {
           console.log('pressed');
           HelloWorld.ShowMessage('Native Event Called', 2000);
